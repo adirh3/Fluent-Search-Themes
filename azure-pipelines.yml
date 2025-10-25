@@ -10,7 +10,7 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-- task: AzureFileCopy@5
+- task: AzureFileCopy@6
   inputs:
     SourcePath: '*.json'
     azureSubscription: 'Visual Studio Enterprise Subscription (20ccd567-1ffd-428b-949d-089c504d45eb)'
@@ -20,7 +20,7 @@ steps:
 
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'Visual Studio Enterprise Subscription (20ccd567-1ffd-428b-949d-089c504d45eb)'
+    azureSubscription: 'Hotmail Visual Studio Subscription'
     scriptType: 'ps'
     scriptLocation: 'inlineScript'
     inlineScript: 'az afd endpoint purge -g rg-fluentsearch --profile-name fluentsearch-cdn --endpoint-name fluentsearch-cdn --content-paths ''/*'' --no-wait'
